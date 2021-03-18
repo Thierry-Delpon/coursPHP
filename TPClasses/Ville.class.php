@@ -5,8 +5,7 @@ class Ville
 {
 private $nom;
 private $departement;
-
-
+private static $nbre = "";
 
     /**
      * Ville constructor.
@@ -16,13 +15,9 @@ private $departement;
     public function __construct($nom, $departement)
     {
 
-        $this->nom = $nom;
+        $this->setNom($nom);
         $this->departement = $departement;
-    }
-    static $nbre;
-    public function lePlusLong(){
-        if (static::$nbre>$this->nom);
-        return $this->nom;
+
     }
 
     /**
@@ -33,13 +28,6 @@ private $departement;
         return self::$nbre;
     }
 
-    /**
-     * @param mixed $nbre
-     */
-    public static function setNbre($nbre)
-    {
-        self::$nbre = $nbre;
-    }
 
 
     /**
@@ -48,7 +36,9 @@ private $departement;
     public function setNom($nom)
     {
         $this->nom = $nom;
-        static::$nbre;
+        if (strlen($this->nom) > strlen(static::$nbre)) {
+            static::$nbre = $this->nom;
+        }
     }
 
     /**
@@ -63,6 +53,4 @@ private $departement;
     {
         return"La ville $this->nom est du département $this->departement";
     }
-
-
 }
