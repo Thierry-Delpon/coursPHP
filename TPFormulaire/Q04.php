@@ -33,9 +33,6 @@ settype($m_tva,'float');
 // déjà fait dans le form
 
 5) Facultatif : les deux premiers champs restent apres le clic sur "Calculer"
-<?php
-
-?>
 -->
 <form method="post">
     <input type="number" step="0.1" name="prix_ht" placeholder="Prix HT" value="<?=$prix_ht?>">
@@ -44,6 +41,5 @@ settype($m_tva,'float');
     <input type="text" name="montant_tva" value="<?= $montant_tva ?>" readonly>
     <input type="text" name="prix_ttc" value="<?= $prix_ttc ?>" readonly>
 </form>
-
 </body>
 </html>
